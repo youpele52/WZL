@@ -64,7 +64,7 @@ cm = confusion_matrix(y_test, y_pred)
 
 # multilabel_confusion_matrix
 from sklearn.metrics import multilabel_confusion_matrix as mcm
-mcm(y_test, y_pred)
+multicm = mcm(y_test, y_pred)
 
 
 #Accuracy Score
