@@ -20,6 +20,15 @@ filepath = "/Volumes/Youpele_HD/WZL/12032020/AKS-19-KS-Stempel-hinten/R1_1/"
 
     
 def corrupt_punch_check1(filepath):
+    
+    '''
+    Computes information such number of corrupt segmentations/punches and their respective index numbers for a single revision. 
+    
+    
+    filepath: File path of the revision in study.
+    
+    '''
+
     revision = filepath[-5:-1]
     punch_list= []
     files = os.listdir(filepath)
@@ -66,6 +75,15 @@ filepathed___ = "/Volumes/Youpele_HD/WZL/12032020/AKS-19-KS-Stempel-hinten/"
 
 
 def corrupt_punch_check2(filepathed___):
+    
+    '''
+    Computes information such number of corrupt segmentations/punches and their respective index numbers for a multiple revisions. 
+    
+    filepathed___: File path of the folder containing multiple revisions.
+    
+    '''
+
+    info_list = []
     date_ = str(date.today()) 
     date_ = date_.replace("-", "_")
     filepathed___list = os.listdir(filepathed___)
@@ -92,7 +110,13 @@ def corrupt_punch_check2(filepathed___):
                                }  )
             
             
-            
+            info_list.append(df1)
+    return info_list
+
+
+
+
+
             if os.path.isfile(date_ + '_new_export.xlsx'):
                 with pd.ExcelWriter(date_ + '_new_export.xlsx', engine='openpyxl' ,mode = 'a') as writer:
                     df1.to_excel(writer, sheet_name=revision)
